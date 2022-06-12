@@ -37,6 +37,7 @@
       </q-input>
       <q-space />
       <q-btn
+        v-if="!userExists"
         flat
         label="Iniciar sesión"
         @click="showLoginModal()"
@@ -44,6 +45,34 @@
         icon="mdi-account"
         size="md"
       />
+      <q-btn-dropdown
+        v-if="userExists"
+        size="xl"
+        flat
+        round
+        dense
+        icon="mdi-account"
+      >
+        <q-list>
+          <q-item to="/profile" clickable v-close-popup>
+            <q-item-section>
+              <q-item-label>Perfil</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-close-popup>
+            <q-item-section>
+              <q-item-label>Pedidos</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-close-popup>
+            <q-item-section>
+              <q-item-label>Pendientes</q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-btn-dropdown>
     </q-toolbar>
     <q-toolbar class="row justify-center mobile-hide">
       <q-tabs
@@ -68,6 +97,9 @@
 </template>
 
 <script>
+import { useUserStore } from "../store/modules/userStore";
+import { mapState } from "pinia";
+
 export default {
   name: "shHeader",
   data() {
@@ -82,6 +114,9 @@ export default {
     showCategoryModal() {
       this.$emit("showCategoryModal");
     },
+  },
+  computed: {
+    ...mapState(useUserStore, ["userExists"]),
   },
 };
 </script>

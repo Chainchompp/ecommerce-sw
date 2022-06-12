@@ -9,6 +9,8 @@ import StoreChoosePage from '../views/StoreChoosePage.vue';
 import ShoppingCartPage from '../views/ShoppingCartPage.vue';
 import ProductPage from '../views/ProductPage.vue'
 import ProductSearchPage from '../views/ProductSearchPage.vue'
+import ProfilePage from "../views/ProfilePage.vue"
+import TracePage from "../views/TracePage.vue"
 
 
 import { useShopStore } from "../store/modules/shopStore";
@@ -70,6 +72,24 @@ const routes = [
         path: '/shop',
         name: 'shop',
         component: ProductSearchPage,
+        meta: {
+            layout: shLayoutDefault,
+            requireAuth: true,
+        }
+    },
+    {
+        path: '/profile',
+        name: 'profile',
+        component: ProfilePage,
+        meta: {
+            layout: shLayoutDefault,
+            requireAuth: true,
+        }
+    },
+    {
+        path: '/trace',
+        name: 'trace',
+        component: TracePage,
         meta: {
             layout: shLayoutDefault,
             requireAuth: true,

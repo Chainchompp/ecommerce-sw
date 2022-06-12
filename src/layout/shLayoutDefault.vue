@@ -1,9 +1,11 @@
 <template>
   <q-layout>
-    <q-header class="mobile-only bg-teal" style="position:sticky">
-       <q-toolbar >
-      <q-btn flat round dense icon="mdi-shopping" to="/home" size="xl" />
-    </q-toolbar>
+    <q-header class="mobile-only bg-teal" style="position: sticky">
+      <q-toolbar>
+        <q-btn flat round dense icon="mdi-shopping" to="/home" size="xl" />
+        <q-space />
+        <q-btn flat round dense icon="mdi-store" to="/store" size="xl" />
+      </q-toolbar>
     </q-header>
     <sh-header
       @show-category-modal="switchCategoryModal()"
@@ -15,18 +17,31 @@
       :showCategories="showCategoryModal"
     ></category-modal>
     <q-page-container>
-      <slot></slot>
+      <q-page>
+        <slot></slot>
+      </q-page>
     </q-page-container>
     <sh-footer></sh-footer>
-    <sh-bottom-nav @open-login-modal="switchLoginModal()" @open-category-modal="switchSimplifyCategoryModal()"></sh-bottom-nav>
+    <sh-bottom-nav
+      @open-login-modal="switchLoginModal()"
+      @open-category-modal="switchSimplifyCategoryModal()"
+    ></sh-bottom-nav>
     <login-modal
       @close-modal="switchLoginModal()"
       :showModal="showLoginModal"
-      @open-register="switchRegisterModal();switchLoginModal() "
+      @open-register="
+        switchRegisterModal();
+        switchLoginModal();
+      "
     ></login-modal>
-    <register-modal :showModal="showRegisterModal"
-    @close-modal="switchRegisterModal()"></register-modal>
-    <simplified-category-modal @show-category-modal="switchSimplifyCategoryModal()" :showCategories="showSimplifyCategoryModal"></simplified-category-modal>
+    <register-modal
+      :showModal="showRegisterModal"
+      @close-modal="switchRegisterModal()"
+    ></register-modal>
+    <simplified-category-modal
+      @show-category-modal="switchSimplifyCategoryModal()"
+      :showCategories="showSimplifyCategoryModal"
+    ></simplified-category-modal>
   </q-layout>
 </template>
 
@@ -34,10 +49,10 @@
 import shHeader from "./shHeader.vue";
 import shFooter from "./shFooter.vue";
 import loginModal from "../components/loginModal.vue";
-import registerModal from "../components/registerModal.vue"
+import registerModal from "../components/registerModal.vue";
 import categoryModal from "../components/categoryModal.vue";
-import shBottomNav from "./shBottomNav.vue"
-import simplifiedCategoryModal from "../components/simplifiedCategoryModal.vue"
+import shBottomNav from "./shBottomNav.vue";
+import simplifiedCategoryModal from "../components/simplifiedCategoryModal.vue";
 
 export default {
   name: "shLayoutDefault",
@@ -48,7 +63,7 @@ export default {
     categoryModal,
     registerModal,
     shBottomNav,
-    simplifiedCategoryModal
+    simplifiedCategoryModal,
   },
   data() {
     return {
@@ -68,9 +83,9 @@ export default {
     switchRegisterModal() {
       this.showRegisterModal = !this.showRegisterModal;
     },
-    switchSimplifyCategoryModal(){
-      this.showSimplifyCategoryModal = !this.showSimplifyCategoryModal
-    }
+    switchSimplifyCategoryModal() {
+      this.showSimplifyCategoryModal = !this.showSimplifyCategoryModal;
+    },
   },
 };
 </script>

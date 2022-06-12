@@ -8,6 +8,7 @@
           label="Subcategorias"
           class="col-12 text-h6 q-my-sm"
           dense
+          group="subcategories"
         >
           <div class="text-body1">
             <div>SubCategoria 1</div>
@@ -23,6 +24,7 @@
           label="Subcategorias"
           class="col-12 text-h6 q-my-sm"
           dense
+          group="subcategories"
         >
           <div class="text-body1">
             <div>SubCategoria 1</div>
@@ -38,6 +40,7 @@
           label="Subcategorias"
           class="col-12 text-h6 q-my-sm"
           dense
+          group="subcategories"
         >
           <div class="text-body1">
             <div>SubCategoria 1</div>
@@ -100,72 +103,23 @@
         />
       </div>
       <div class="row justify-around q-my-md">
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
-        <q-card class="my-card q-mx-md q-my-sm col-md-2 col-xs-12 col-sm-5">
-          <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-            <div class="absolute-bottom text-subtitle2 text-center">Title</div>
-          </q-img>
-        </q-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import ProductCard from "../components/ProductCard.vue";
+
 export default {
   name: "ProductSearchPage",
   data() {
@@ -180,8 +134,11 @@ export default {
       orderOptions: ["Por precio asc.", "Por precio desc.", "Más populares"],
     };
   },
+  components: {
+    ProductCard,
+  },
 };
 </script>
 
-<style>
+<style scoped lang="sass">
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <q-header elevated class="bg-cyan">
+  <q-header elevated class="bg-teal">
     <q-toolbar class="row justify-center">
       <q-btn to="/home" unelevated>
         <q-toolbar-title> <strong>VOLVER</strong> </q-toolbar-title>

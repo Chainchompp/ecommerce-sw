@@ -24,6 +24,7 @@
           :rules="passwordRules"
           :error="passwordError"
           class="q-my-md q-mx-xl"
+          type="password"
         />
         <div v-if="invalidLogin" class="text-center text-negative">
           Email o contraseña inválidos
@@ -41,6 +42,9 @@
 </template>
 
 <script>
+import {useUserStore} from "../store/modules/userStore"
+import { mapActions} from "pinia"
+
 export default {
   data() {
     return {
@@ -75,6 +79,7 @@ export default {
         this.userPassword == "contraseña"
       ) {
         console.log("Log exitoso");
+        this.login(this.userEmail,this.userPassword)
         return;
       }
       this.invalidLogin = true;
@@ -89,7 +94,8 @@ export default {
     },
     openRegisterModal(){
       this.$emit('openRegister')
-    }
+    },
+    ...mapActions(useUserStore,["login"])
   },
 };
 </script>
