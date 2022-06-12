@@ -112,6 +112,16 @@
         <product-card></product-card>
         <product-card></product-card>
         <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
+        <product-card></product-card>
       </div>
     </div>
   </div>

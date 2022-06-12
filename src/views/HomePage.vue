@@ -1,5 +1,5 @@
 <template>
-  <div class="q-my-md">
+  <div class="q-py-md">
     <q-carousel
       arrows
       animated
@@ -28,7 +28,7 @@
     <div class="bg-secondary">
       <p class="text-subtitle1 text-center text-white">Lo más vendidos</p>
     </div>
-    <div class="q-pa-md q-my-xl justify-center row q-gutter-md">
+    <div class="q-pa-md q-mt-xl justify-center row q-gutter-md">
       <q-card
         v-for="(item, i) in topSellers"
         :key="`top-sellers-${i}`"

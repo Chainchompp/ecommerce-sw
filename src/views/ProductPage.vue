@@ -22,12 +22,12 @@
               col-3
             "
           >
-            <q-btn @click="productQuantity--" dense size="sm" icon="mdi-minus" />
+            <q-btn @click="productQuantity--" dense size="sm" class="col-3" icon="mdi-minus" />
             <div class="col-6">
-              <q-input v-model="productQuantity" outlined dense />
+              <q-input v-model="productQuantity" outlined dense  />
             </div>
 
-            <q-btn @click="productQuantity++" dense size="sm" icon="mdi-plus" />
+            <q-btn @click="productQuantity++" dense size="sm"  class="col-3" icon="mdi-plus" />
           </div>
           <div class="text-h6 q-mb-xs text-center col-3">$1.50</div>
           <div class="text-h6 q-mb-xs text-center col-4">

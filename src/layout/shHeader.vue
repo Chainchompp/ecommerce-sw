@@ -59,16 +59,9 @@
               <q-item-label>Perfil</q-item-label>
             </q-item-section>
           </q-item>
-
-          <q-item clickable v-close-popup>
+          <q-item to="/trace" clickable v-close-popup>
             <q-item-section>
-              <q-item-label>Pedidos</q-item-label>
-            </q-item-section>
-          </q-item>
-
-          <q-item clickable v-close-popup>
-            <q-item-section>
-              <q-item-label>Pendientes</q-item-label>
+              <q-item-label>Trace</q-item-label>
             </q-item-section>
           </q-item>
         </q-list>

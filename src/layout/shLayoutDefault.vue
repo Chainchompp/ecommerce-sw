@@ -1,5 +1,5 @@
 <template>
-  <q-layout>
+  <q-layout  view="hHh lpr fff" >
     <q-header class="mobile-only bg-teal" style="position: sticky">
       <q-toolbar>
         <q-btn flat round dense icon="mdi-shopping" to="/home" size="xl" />
@@ -12,10 +12,6 @@
       @show-login-modal="switchLoginModal()"
       :default-layout="true"
     />
-    <category-modal
-      @show-category-modal="switchCategoryModal()"
-      :showCategories="showCategoryModal"
-    ></category-modal>
     <q-page-container>
       <q-page>
         <slot></slot>
@@ -42,6 +38,10 @@
       @show-category-modal="switchSimplifyCategoryModal()"
       :showCategories="showSimplifyCategoryModal"
     ></simplified-category-modal>
+    <category-modal
+      @show-category-modal="switchCategoryModal()"
+      :showCategories="showCategoryModal"
+    ></category-modal>
   </q-layout>
 </template>
 
