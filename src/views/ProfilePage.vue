@@ -25,7 +25,7 @@
       </div>
       <div class="text-h6">Email</div>
       <div class="text-subtitle2 q-pl-md text-grey-8">giropinto100@gmail.com</div>
-      <div class="text-h6">Ordenes realizadas</div>
+      <div class="text-h6">Pedidos realizados</div>
       <div class="text-subtitle2 q-pl-md text-grey-8">
         128
       </div>

@@ -8,6 +8,7 @@
               class="col-md-6 col-xs-3"
               outlined
               dense
+              v-model="productQuantity"
               type="number"
               min="1"
             />
@@ -19,7 +20,12 @@
 
 <script>
 export default {
-    name: "ProductCard"
+    name: "ProductCard",
+    data() {
+      return {
+        productQuantity: 1
+      }
+    }
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="row items-start">
-    <div class="col-md-3 mobile-hide justify-center row">
+    <div class="col-md-3 col-lg-2 mobile-hide justify-center row">
       <div class="col-12 q-ml-md text-h4 q-my-sm">Categoria</div>
       <q-list class="col-12 text-center" dense>
         <q-expansion-item
@@ -90,9 +90,9 @@
         </q-expansion-item>
       </q-list>
     </div>
-    <div class="col-md-9 col-xs-12 q-my-sm">
-      <div class="row justify-between items-center q-px-lg">
-        <div class="text-h2 text-center q-mt-sm col-4">Categoria</div>
+    <div class="col-md-9 col-lg-10 col-xs-12 q-my-sm">
+      <div class="row justify-between items-end q-px-lg">
+        <div class="text-h3 text-center q-mt-sm col-4">Categoria</div>
         <q-select
           class="col-4"
           outlined

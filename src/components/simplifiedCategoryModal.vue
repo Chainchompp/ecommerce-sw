@@ -15,12 +15,19 @@
             class="col-12 text-h6 q-my-sm"
             dense
           >
-            <div class="text-body1">
-              <div>SubCategoria 1</div>
-              <div>SubCategoria 2</div>
-              <div>SubCategoria 3</div>
-              <div>SubCategoria 4</div>
-            </div>
+            <q-list dense  padding class="text-subtitle2">
+              <q-item to="/shop" clickable v-ripple>
+                <q-item-section> Item </q-item-section>
+              </q-item>
+
+              <q-item clickable v-ripple>
+                <q-item-section> Item </q-item-section>
+              </q-item>
+
+              <q-item clickable v-ripple>
+                <q-item-section> Item </q-item-section>
+              </q-item>
+            </q-list>
           </q-expansion-item>
           <q-expansion-item
             group="categories"
