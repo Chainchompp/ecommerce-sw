@@ -1,4 +1,5 @@
 <template>
+<q-page>
   <div class="row  items-start">
     <q-card class="my-card col-xs-12 col-md-5 self-start">
       <q-img
@@ -40,6 +41,7 @@
         />
     </div>
   </div>
+</q-page>
 </template>
 
 <script>

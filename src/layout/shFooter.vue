@@ -2,11 +2,9 @@
 
 <template>
 
-  <q-footer class="bg-primary mobile-hide"  elevated>
+  <q-footer class="bg-primary mobile-hide desktop-only">
     <q-toolbar>
       <q-toolbar-title></q-toolbar-title>
-    </q-toolbar>
-     <q-toolbar>
     </q-toolbar>
   </q-footer>
 </template>

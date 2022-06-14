@@ -1,5 +1,5 @@
 <template>
-  <q-footer class="mobile-only bg-primary" style="position: sticky" elevated>
+  <q-footer class="mobile-only desktop-hide	 bg-primary"  >
     <q-toolbar>
       <q-tabs
         style="width: 100%"

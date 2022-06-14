@@ -1,4 +1,5 @@
 <template>
+<q-page>
   <div class="q-px-lg  q-pt-md row justify-around">
     <q-timeline color="primary" class="col-xs-12 col-sm-6">
       <q-timeline-entry class="text-center q-mb-md" heading>
@@ -34,6 +35,7 @@
     </q-timeline>
      <lottie-player class="col-xs-12 col-sm-4" src="https://assets8.lottiefiles.com/packages/lf20_IBzA9e/Shipping.json"  background="transparent"  speed="1"    loop  autoplay></lottie-player>
   </div>
+</q-page>
 </template>
 
 <script>

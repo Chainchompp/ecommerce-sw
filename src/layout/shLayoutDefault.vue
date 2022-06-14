@@ -1,6 +1,6 @@
 <template>
-  <q-layout  view="hHh lpr fff" >
-    <q-header class="mobile-only bg-primary" style="position: sticky">
+  <q-layout :view="isMobile ? 'hHh LpR fFf' : 'hHh LpR fff'">
+    <q-header v-if="isMobile" class="mobile-only desktop-hide bg-primary">
       <q-toolbar>
         <q-btn flat round dense icon="mdi-shopping" to="/home" size="xl" />
         <q-space />
@@ -8,17 +8,13 @@
       </q-toolbar>
     </q-header>
     <sh-header
+      v-if="!isMobile"
       @show-category-modal="switchCategoryModal()"
       @show-login-modal="switchLoginModal()"
-      :default-layout="true"
     />
-    <q-page-container>
-      <q-page>
-        <slot></slot>
-      </q-page>
-    </q-page-container>
-    <sh-footer></sh-footer>
+    <sh-footer v-if="!isMobile"></sh-footer>
     <sh-bottom-nav
+      v-if="isMobile"
       @open-login-modal="switchLoginModal()"
       @open-category-modal="switchSimplifyCategoryModal()"
     ></sh-bottom-nav>
@@ -42,6 +38,11 @@
       @show-category-modal="switchCategoryModal()"
       :showCategories="showCategoryModal"
     ></category-modal>
+    <q-page-container>
+      <q-page>
+        <slot></slot>
+      </q-page>
+    </q-page-container>
   </q-layout>
 </template>
 
@@ -53,6 +54,8 @@ import registerModal from "../components/registerModal.vue";
 import categoryModal from "../components/categoryModal.vue";
 import shBottomNav from "./shBottomNav.vue";
 import simplifiedCategoryModal from "../components/simplifiedCategoryModal.vue";
+
+import { useQuasar } from "quasar";
 
 export default {
   name: "shLayoutDefault",
@@ -86,6 +89,14 @@ export default {
     switchSimplifyCategoryModal() {
       this.showSimplifyCategoryModal = !this.showSimplifyCategoryModal;
     },
+  },
+  setup() {
+    const $q = useQuasar();
+
+    const isMobile = $q.platform.is.mobile;
+    return {
+      isMobile,
+    };
   },
 };
 </script>

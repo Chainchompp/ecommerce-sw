@@ -1,4 +1,5 @@
 <template>
+<q-page>
   <div class="row items-start">
     <div class="col-md-3 col-lg-2 mobile-hide justify-center row">
       <div class="col-12 q-ml-md text-h4 q-my-sm">Categoria</div>
@@ -125,6 +126,7 @@
       </div>
     </div>
   </div>
+</q-page>
 </template>
 
 <script>

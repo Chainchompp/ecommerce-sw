@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <q-page>
     <div class="q-mt-lg text-center text-h4">Carrito de compras</div>
     <div class="row q-mx-md justify-around">
       <div class="col-md-7 col-xs-12 col-sm-12 q-my-lg">
@@ -131,7 +131,7 @@
         </q-card>
       </div>
     </div>
-  </div>
+  </q-page>
 </template>
 
 <script>

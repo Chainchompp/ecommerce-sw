@@ -1,5 +1,5 @@
 <template>
-  <div class="q-py-md">
+   <q-page  >
     <q-carousel
       arrows
       animated
@@ -38,7 +38,7 @@
         </q-img>
       </q-card>
     </div>
-  </div>
+   </q-page>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
-  <q-header elevated class="bg-primary">
-    <q-toolbar class="mobile-hide">
+  <q-header elevated class="bg-primary desktop-only mobile-hide">
+    <q-toolbar>
       <q-btn
         @click="showCategoryModal()"
         flat
