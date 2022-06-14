@@ -2,7 +2,7 @@
 
 <template>
 
-  <q-footer class="bg-teal mobile-hide"  elevated>
+  <q-footer class="bg-primary mobile-hide"  elevated>
     <q-toolbar>
       <q-toolbar-title></q-toolbar-title>
     </q-toolbar>

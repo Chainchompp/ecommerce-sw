@@ -19,14 +19,11 @@
         :img-src="item.source"
         :key="`carousel-item-${i}`"
       >
-        <div class="absolute-bottom custom-caption">
-          <div class="text-subtitle1">{{ item.name }}</div>
-        </div>
       </q-carousel-slide>
     </q-carousel>
 
     <div class="bg-secondary">
-      <p class="text-subtitle1 text-center text-white">Lo más vendidos</p>
+      <p class="text-subtitle1 text-center text-bold">LOS MÁS VENDIDOS</p>
     </div>
     <div class="q-pa-md q-mt-xl justify-center row q-gutter-md">
       <q-card
@@ -96,7 +93,7 @@ export default {
   padding-top: 12px
   padding-bottom: 60px
   color: white
-  background-color: rgba(0, 0, 0, .3)
+  background-color: #003399
 
 .my-card
   width: 100%

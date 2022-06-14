@@ -1,5 +1,5 @@
 <template>
-  <q-header elevated class="bg-cyan">
+  <q-header elevated class="bg-primary">
     <q-toolbar class="mobile-hide">
       <q-btn
         @click="showCategoryModal()"
@@ -10,7 +10,9 @@
         size="xl"
       />
       <q-btn flat round dense icon="mdi-shopping" to="/home" size="xl" />
-      <q-space />
+      <q-space></q-space>
+      <img src="../assets/logo.png" style="height: 50px" alt="Logo"/>
+      <q-space></q-space>
       <q-btn size="xl" flat round dense icon="mdi-store" to="/store" />
       <q-btn size="xl" flat round dense icon="shopping_cart" to="/cart" />
     </q-toolbar>
@@ -67,10 +69,10 @@
         </q-list>
       </q-btn-dropdown>
     </q-toolbar>
-    <q-toolbar class="row justify-center mobile-hide">
+    <q-toolbar class="row justify-center mobile-hide bg-secondary">
       <q-tabs
         inline-label
-        class="text-white"
+        class="text-black"
         style="width: 100%"
         outside-arrows
         indicator-color="transparent"

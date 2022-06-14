@@ -120,7 +120,7 @@
               <q-btn
                 style="width: 90%"
                 class="q-py-md"
-                color="black"
+                color="primary"
                 to="/buy"
                 icon="mdi-lock"
                 dense

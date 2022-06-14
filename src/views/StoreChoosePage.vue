@@ -1,7 +1,7 @@
 <template>
   <q-layout>
     <q-page-container>
-      <q-page class="bg-cyan">
+      <q-page class="bg-primary">
         <div class="q-py-xl" style="height: 100%">
           <div class="flex justify-center desktop-only mobile-hide">
             <img
@@ -9,23 +9,23 @@
               style="width: 40vw; max-width: 800px"
             />
           </div>
-          <p class="text-h4 q-mt-xl text-center">
+          <p class="text-h4 q-mt-xl text-center text-white">
             Selecciona una de nuestras sedes para continuar:
           </p>
           <div
             class="q-pa-md q-my-xl items-center justify-around row q-gutter-md"
           >
             <q-card @click="selectShop('Mercado 1')" class="my-card">
-              <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
+              <q-img src="https://pr1.nicelocal.pe/3c1BpxTajhWn6fXu5Vps6g/1500x1126,q75/4px-BW84_n0QJGVPszge3NRBsKw-2VcOifrJIjPYFYkOtaCZxxXQ2XW5vuVqJ8ns98aDdoHZ6eVRumMoozinsY8EX3DN0w0M4mXxbYJm-0YV5SNZ9I24jA">
                 <div class="absolute-bottom text-subtitle2 text-center">
-                  Mercado 1
+                  San Martín de Porres
                 </div>
               </q-img>
             </q-card>
             <q-card @click="selectShop('Mercado 2')" class="my-card">
               <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
                 <div class="absolute-bottom text-subtitle2 text-center">
-                  Mercado 2
+                  Los Olivos
                 </div>
               </q-img>
             </q-card>

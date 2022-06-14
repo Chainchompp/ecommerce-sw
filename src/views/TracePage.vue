@@ -1,6 +1,6 @@
 <template>
   <div class="q-px-lg  q-pt-md row justify-around">
-    <q-timeline color="teal" class="col-xs-12 col-sm-6">
+    <q-timeline color="primary" class="col-xs-12 col-sm-6">
       <q-timeline-entry class="text-center q-mb-md" heading>
         Estado de tu pedido
       </q-timeline-entry>
@@ -19,7 +19,7 @@
       <q-timeline-entry
         title="Enviado"
         subtitle="Febrero 23, 3:02 p.m"
-        color="teal"
+        color="primary"
         icon="done_all"
       >
       </q-timeline-entry>

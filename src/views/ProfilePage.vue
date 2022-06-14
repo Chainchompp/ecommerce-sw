@@ -10,7 +10,7 @@
         <q-btn
         
           fab
-          color="teal"
+          color="primary"
           icon="edit"
           class="absolute mobile-only"
           style="top: 0; right: 12px; transform: translateY(-50%)"
@@ -33,7 +33,7 @@
       <q-btn
         
           fab
-          color="teal"
+          color="primary"
           icon="edit"
           class="relative mobile-hide q-my-md"
           label="Modificar Perfil"

@@ -3,9 +3,9 @@
     header-nav
     v-model="step"
     vertical
-    color="teal"
-    done-color="teal"
-    active-color="teal"
+    color="primary"
+    done-color="primary"
+    active-color="primary"
     inactive-color="grey-8"
     animated
     active-icon="mdi-arrow-right-thin-circle-outline"
@@ -50,14 +50,14 @@
         <q-option-group
           v-model="acceptTerms"
           :options="terms"
-          color="green"
+          color="secondary"
           type="checkbox"
           name="acceptTerms"
         />
       </div>
 
       <q-stepper-navigation>
-        <q-btn @click="step = 2" color="teal" label="Confirmar" />
+        <q-btn @click="step = 2" color="primary" label="Confirmar" />
       </q-stepper-navigation>
     </q-step>
 
@@ -105,7 +105,7 @@
       </div>
       <div class="row justify-end">
         <q-btn
-          color="teal"
+          color="primary"
           icon="mdi-map-marker"
           label="USAR DIRECCION ACTUAL"
         ></q-btn>
@@ -113,13 +113,13 @@
       <q-stepper-navigation>
         <q-btn
           @click="confirmShip()"
-          color="teal"
+          color="primary"
           label="Ir a método de pago"
         />
         <q-btn
           flat
           @click="step = 1"
-          color="teal"
+          color="primary"
           label="Regresar"
           class="q-ml-sm"
         />
@@ -190,11 +190,11 @@
       </div>
 
       <q-stepper-navigation>
-        <q-btn color="teal" label="Realizar pago" />
+        <q-btn color="primary" label="Realizar pago" />
         <q-btn
           flat
           @click="step = 2"
-          color="teal"
+          color="primary"
           label="Regresar"
           class="q-ml-sm"
         />
@@ -230,7 +230,7 @@
         </q-card-section>
         <q-card-actions align="around">
           <q-btn
-            color="teal"
+            color="primary"
             label="Confirmar"
             @click="showCashOnDelivery = false"
           ></q-btn>
@@ -266,28 +266,28 @@ export default {
       group: null,
       paymentOption: null,
       options: [
-        { label: "Despacho en domicilio", value: "despacho", color: "green" },
-        { label: "Retiro en tienda", value: "retiro", color: "green" },
+        { label: "Despacho en domicilio", value: "despacho", color: "secondary" },
+        { label: "Retiro en tienda", value: "retiro", color: "secondary" },
       ],
       paymentOptions: [
         {
           label: "Boleta",
           value: "boleta",
-          color: "green",
+          color: "secondary",
         },
-        { label: "Factura", value: "factura", color: "green" },
+        { label: "Factura", value: "factura", color: "secondary" },
       ],
       shipCostState: false,
       showCashOnDelivery: false,
       onDeliveryCashOptions: [
-        { label: "Efectivo", value: "efectivo", color: "green" },
-        { label: "Yape", value: "yape", color: "green" },
+        { label: "Efectivo", value: "efectivo", color: "secondary" },
+        { label: "Yape", value: "yape", color: "secondary" },
         {
           label: "POS Inalámbrico Mastercard",
           value: "postmaster",
-          color: "green",
+          color: "secondary",
         },
-        { label: "POS Inalámbrico Visa", value: "posvisa", color: "green" },
+        { label: "POS Inalámbrico Visa", value: "posvisa", color: "secondary" },
       ],
       onDeliveryCashOption: null,
     };

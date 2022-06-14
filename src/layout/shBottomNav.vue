@@ -1,5 +1,5 @@
 <template>
-  <q-footer class="mobile-only bg-teal" style="position: sticky" elevated>
+  <q-footer class="mobile-only bg-primary" style="position: sticky" elevated>
     <q-toolbar>
       <q-tabs
         style="width: 100%"
@@ -8,7 +8,7 @@
         v-model="tab"
         indicator-color="transparent"
         active-color="white"
-        class="bg-teal"
+        class="bg-primary"
         align="justify"
         dense
       >

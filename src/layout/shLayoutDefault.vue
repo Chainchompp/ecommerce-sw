@@ -1,6 +1,6 @@
 <template>
   <q-layout  view="hHh lpr fff" >
-    <q-header class="mobile-only bg-teal" style="position: sticky">
+    <q-header class="mobile-only bg-primary" style="position: sticky">
       <q-toolbar>
         <q-btn flat round dense icon="mdi-shopping" to="/home" size="xl" />
         <q-space />
