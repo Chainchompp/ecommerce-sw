@@ -23,16 +23,16 @@
               </q-img>
             </q-card>
             <q-card @click="selectShop('Mercado 2')" class="my-card">
-              <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
+              <q-img src="https://e.rpp-noticias.io/large/2021/10/01/124812_1151669.jpg">
                 <div class="absolute-bottom text-subtitle2 text-center">
                   Los Olivos
                 </div>
               </q-img>
             </q-card>
             <q-card @click="selectShop('Mercado 3')" class="my-card">
-              <q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
+              <q-img src="https://scontent.flim25-1.fna.fbcdn.net/v/t1.6435-9/60343503_590243244718381_7637325487290712064_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeGuNJyzrSdzsskqCDUjFQQgZ1GYxdhmftpnUZjF2GZ-2pv1MN_9xgJI-YpRjMHCvL-1kMG52-UFH01SFtP3Eemc&_nc_ohc=bGRdK5J9tWMAX_gx1qW&_nc_ht=scontent.flim25-1.fna&oh=00_AT9-_pO0am_u4iwohA6EX8lJiRoNz8qkBe5nwdGJQNDZVw&oe=62D16010">
                 <div class="absolute-bottom text-subtitle2 text-center">
-                  Mercado 3
+                  Santa Anita
                 </div>
               </q-img>
             </q-card>

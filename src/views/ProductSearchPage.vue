@@ -2,52 +2,61 @@
 <q-page>
   <div class="row items-start">
     <div class="col-md-3 col-lg-2 mobile-hide justify-center row">
-      <div class="col-12 q-ml-md text-h4 q-my-sm">Categoria</div>
+      <div class="col-12 q-ml-md text-h4 q-my-sm">Mascotas</div>
       <q-list class="col-12 text-center" dense>
         <q-expansion-item
           expand-separator
-          label="Subcategorias"
+          label="Otras Mascotas"
           class="col-12 text-h6 q-my-sm"
           dense
           group="subcategories"
         >
           <div class="text-body1">
-            <div>SubCategoria 1</div>
-            <div>SubCategoria 2</div>
-            <div>SubCategoria 3</div>
-            <div>SubCategoria 4</div>
+            <div>Accesorios</div>
+            <div>Alimentos</div>
+            <div>Higiene y Cuidado</div>
           </div>
         </q-expansion-item>
       </q-list>
       <q-list class="col-12 text-center" dense>
         <q-expansion-item
           expand-separator
-          label="Subcategorias"
+          label="Para Gatos"
           class="col-12 text-h6 q-my-sm"
           dense
           group="subcategories"
         >
           <div class="text-body1">
-            <div>SubCategoria 1</div>
-            <div>SubCategoria 2</div>
-            <div>SubCategoria 3</div>
-            <div>SubCategoria 4</div>
+            <div>Alimento Humedo para Gatos</div>
+            <div>Alimento Seco para Gatos</div>
+            <div>Arena para Gatos</div>
+            <div>Camas y Condominios para Gatos</div>
+            <div>Higiene y Accesorios para Gatos</div>
+            <div>Juguetes y Rascadores para Gatos</div>
+            <div>Snacks para Gatos</div>
           </div>
         </q-expansion-item>
       </q-list>
       <q-list class="col-12 text-center" dense>
         <q-expansion-item
           expand-separator
-          label="Subcategorias"
+          label="Para Perros"
           class="col-12 text-h6 q-my-sm"
           dense
           group="subcategories"
         >
           <div class="text-body1">
-            <div>SubCategoria 1</div>
-            <div>SubCategoria 2</div>
-            <div>SubCategoria 3</div>
-            <div>SubCategoria 4</div>
+            <div>Accesorios para Perros</div>
+            <div>Alimento Humedo para Perros</div>
+            <div>Alimento Natural para Perros</div>
+            <div>Alimento Seco para Perros</div>
+            <div>Articulos de Transporte</div>
+            <div>Camas para Perros</div>
+            <div>Casas para Perros</div>
+            <div>Higiene y Cuidado para Perros</div>
+            <div>Juguetes para Perros</div>
+            <div>Ropa para Perros</div>
+            <div>Snacks para Perros</div>>
           </div>
         </q-expansion-item>
       </q-list>
@@ -137,9 +146,9 @@ export default {
   data() {
     return {
       options: [
-        { label: "Marca 1", value: "marca1", color: "black" },
-        { label: "Marca 2", value: "marca2", color: "black" },
-        { label: "Marca 3", value: "marca3", color: "black" },
+        { label: "MiMaskot", value: "marca1", color: "black" },
+        { label: "Pedigree", value: "marca2", color: "black" },
+        { label: "Otros", value: "marca3", color: "black" },
       ],
       group: [],
       orderBy: null,
