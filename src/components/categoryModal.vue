@@ -106,13 +106,13 @@
               <div class="text-h4 q-mb-md">Mascotas</div>
               <div class="row">
                 <div class="column col-4">
-                  <div >Otras Mascotas</div>
+                  <div class="text-bold" >Otras Mascotas</div>
                   <div >Accesorios</div>
                   <div >Alimentos</div>
                   <div >Higiene y Cuidado</div>
                 </div>
                 <div class="column col-4">
-                  <div>Para Gatos</div>
+                  <div class="text-bold">Para Gatos</div>
                   <div>Alimento Humedo para Gatos</div>
                   <div>Alimento Seco para Gatos</div>
                   <div>Arena para Gatos</div>
@@ -122,7 +122,7 @@
                   <div>Snacks para Gatos</div>
                 </div>
                 <div class="column col-4">
-                  <div>Para Perros</div>
+                  <div class="text-bold">Para Perros</div>
                   <div>Accesorios para Perros</div>
                   <div>Alimento Humedo para Perros</div>
                   <div>Alimento Natural para Perros</div>
