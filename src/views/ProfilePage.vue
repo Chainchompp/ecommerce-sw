@@ -19,6 +19,8 @@
       </q-card-section>
     </q-card>
     <div class="col-xs-12 col-md-7 q-pa-md ">
+      <div class="text-h6">DNI</div>
+      <div class="text-subtitle2 q-pl-md text-grey-8">72816492</div>
       <div class="text-h6">Número</div>
       <div class="text-subtitle2 q-pl-md text-grey-8">987654321</div>
       <div class="text-h6">Dirección</div>
