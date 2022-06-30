@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import {useUserStore} from "../store/modules/userStore"
-import { mapActions} from "pinia"
+import { useUserStore } from "../store/modules/userStore";
+import { mapActions } from "pinia";
 
 export default {
   data() {
@@ -73,29 +73,26 @@ export default {
     closeModal() {
       this.$emit("closeModal");
     },
-    loginUser() {
-      if (
-        this.userEmail == "colmillo@gmail.com" &&
-        this.userPassword == "contraseña"
-      ) {
-        console.log("Log exitoso");
-        this.login(this.userEmail,this.userPassword)
-        return;
+    async loginUser() {
+      try {
+        await this.login(this.userEmail, this.userPassword);
+        this.$emit("closeModal");
+      } catch (error) {
+        this.invalidLogin = true;
+        this.emailError = true;
+        this.passwordError = true;
+        setTimeout(() => {
+          this.invalidLogin = false;
+          this.emailError = false;
+          this.passwordError = false;
+          console.log("really");
+        }, 2000);
       }
-      this.invalidLogin = true;
-      this.emailError = true;
-      this.passwordError = true;
-      setTimeout(() => {
-        this.invalidLogin = false;
-        this.emailError = false;
-        this.passwordError = false;
-        console.log("really");
-      }, 2000);
     },
-    openRegisterModal(){
-      this.$emit('openRegister')
+    openRegisterModal() {
+      this.$emit("openRegister");
     },
-    ...mapActions(useUserStore,["login"])
+    ...mapActions(useUserStore, ["login"]),
   },
 };
 </script>

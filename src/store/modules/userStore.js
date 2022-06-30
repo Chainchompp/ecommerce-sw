@@ -1,9 +1,11 @@
 import { defineStore } from "pinia";
+import axios from "axios"
 
 
 export const useUserStore = defineStore("userStore", {
     state: () => ({
-       user: null
+        user: null,
+        sessionStorage: null
     }),
 
     getters: {
@@ -11,13 +13,33 @@ export const useUserStore = defineStore("userStore", {
             return !!state.user
         }
     },
-    
 
     actions: {
-        login(email,password){
-            this.user = {
-                email: email,
-                password: password
+        async login(email, password) {
+
+
+            const { data:{data} } = await axios.post('http://localhost:5000/ecommerceApi/auth/login',
+                {
+                    email: email,
+                    password: password
+                }).catch(error => {
+                    throw error
+                })
+            console.log(data)
+            this.sessionStorage = data.sessionStorage
+            this.user = data.client
+            localStorage.setItem('token', data.token)
+            localStorage.setItem('expiresIn', data.expiresIn)
+
+        },
+        async register(clientInformation) {
+            try {
+                await axios.post('http://localhost:5000/ecommerceApi/auth/register',
+                    {
+                        ...clientInformation
+                    })
+            } catch (error) {
+                console.log(error)
             }
         }
     }

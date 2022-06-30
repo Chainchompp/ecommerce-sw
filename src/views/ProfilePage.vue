@@ -20,15 +20,15 @@
     </q-card>
     <div class="col-xs-12 col-md-7 q-pa-md ">
       <div class="text-h6">DNI</div>
-      <div class="text-subtitle2 q-pl-md text-grey-8">72816492</div>
+      <div class="text-subtitle2 q-pl-md text-grey-8">{{user.document}}</div>
       <div class="text-h6">Número</div>
-      <div class="text-subtitle2 q-pl-md text-grey-8">987654321</div>
+      <div class="text-subtitle2 q-pl-md text-grey-8">{{user.number}}</div>
       <div class="text-h6">Dirección</div>
       <div class="text-subtitle2 q-pl-md text-grey-8">
         Av. Los Fresnos ... , La Molina
       </div>
       <div class="text-h6">Email</div>
-      <div class="text-subtitle2 q-pl-md text-grey-8">giropinto100@gmail.com</div>
+      <div class="text-subtitle2 q-pl-md text-grey-8">{{user.email}}</div>
       <div class="text-h6">Pedidos realizados</div>
       <div class="text-subtitle2 q-pl-md text-grey-8">
         128
@@ -47,8 +47,13 @@
 </template>
 
 <script>
+import { mapState } from "pinia";
+import { useUserStore } from "../store/modules/userStore";
 export default {
   name: "ProfilePage",
+  computed:{
+    ...mapState(useUserStore,['user'])
+  }
 };
 </script>
 <style lang="sass" scoped>
