@@ -12,7 +12,7 @@
             <q-card-section class="col-md-3">
               <div class="text-center text-subtitle1 q-my-sm">Producto</div>
               <div class="row justify-center">
-                <q-btn dense to="/product" size="sm" label="Ver producto" />
+                <q-btn dense to="/product/123" size="sm" label="Ver producto" />
               </div>
             </q-card-section>
             <q-card-section class="row justify-center q-px-xs col-md-6 col-xs-7 text-center">

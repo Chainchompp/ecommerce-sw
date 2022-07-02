@@ -1,15 +1,15 @@
 <template>
   <q-page>
-    <div class="row justify-around items-center">
+    <div v-if="product != null" class="row justify-around items-center">
       <div class="col-sm-6 col-xs-12">
         <q-card class="my-card q-my-md">
           <q-card-section>
-            <div class="text-h6 q-mb-xs text-center">Chips Ahoy</div>
+            <div class="text-h6 q-mb-xs text-center">{{product.title}}</div>
           </q-card-section>
 
           <q-img
             style="max-height: 400px"
-            src="https://transmarket.pe/wp-content/uploads/2020/05/galleta-chips-ahoy.jpg"
+            :src="product.caption"
           />
           <q-card-section class="row justify-around">
             <div
@@ -42,7 +42,7 @@
                 icon="mdi-plus"
               />
             </div>
-            <div class="text-h6 q-mb-xs text-center col-3">$1.50</div>
+            <div class="text-h6 q-mb-xs text-center col-3">{{productPrice}}</div>
             <div class="text-h6 q-mb-xs text-center col-4">
               <q-btn @click="addToCart()" label="Agregar" />
             </div>
@@ -52,27 +52,14 @@
       <div class="col-md-4 col-xs-12 q-my-md">
         <div class="text-center text-h4">Caracteristicas</div>
         <q-list bordered class="q-my-sm">
-          <q-item>
+          <q-item v-for="(detail,i) in product.details" :key="`product-key-${i}`" >
             <q-item-section avatar>
               <q-icon color="black" name="mdi-minus" />
             </q-item-section>
 
-            <q-item-section>Textura irregular</q-item-section>
+            <q-item-section>{{detail}}</q-item-section>
           </q-item>
-          <q-item>
-            <q-item-section avatar>
-              <q-icon color="black" name="mdi-minus" />
-            </q-item-section>
-
-            <q-item-section>Galleta vainilla</q-item-section>
-          </q-item>
-          <q-item>
-            <q-item-section avatar>
-              <q-icon color="black" name="mdi-minus" />
-            </q-item-section>
-
-            <q-item-section>Chispas de chocolate</q-item-section>
-          </q-item>
+          
 
           <q-separator />
 
@@ -93,12 +80,16 @@
         :showModal="showStockModal"
       ></product-stock-modal>
     </div>
+    <div v-if="product == null" class="row justify-around items-center q-pt-xl">
+      <p class="text-h3">Product not found</p>
+    </div>
   </q-page>
 </template>
 
 <script>
 import productStockModal from "../components/productStockModal.vue";
 import addProductModal from "../components/addProductModal.vue";
+import axios from 'axios'
 
 export default {
   components: {
@@ -111,6 +102,7 @@ export default {
       showAddModal: false,
       productQuantity: 0,
       addResult: true,
+      product: null
     };
   },
   methods: {
@@ -135,6 +127,23 @@ export default {
       this.openAddModal();
     },
   },
+  computed:{
+    productPrice(){
+      const price = 0
+      arr.forEach(price)
+      this.product.prices.map(e)
+    }
+  },
+  async beforeMount(){
+    try{
+      const product = await axios.get(`http://localhost:5000/ecommerceApi/product/${this.$route.params.id}`)
+      this.product = product.data.data
+    }catch(error){
+
+    }
+    
+    
+  }
 };
 </script>
 

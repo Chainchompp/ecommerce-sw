@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     navigateToProduct() {
-      this.$router.replace("/product");
+      this.$router.replace("/product/62bf81c8aa2f072c39779981");
     },
   },
 };
