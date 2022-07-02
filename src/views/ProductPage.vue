@@ -4,13 +4,10 @@
       <div class="col-sm-6 col-xs-12">
         <q-card class="my-card q-my-md">
           <q-card-section>
-            <div class="text-h6 q-mb-xs text-center">{{product.title}}</div>
+            <div class="text-h6 q-mb-xs text-center">{{ product.title }}</div>
           </q-card-section>
 
-          <q-img
-            style="max-height: 400px"
-            :src="product.caption"
-          />
+          <q-img style="max-height: 400px" :src="product.caption" />
           <q-card-section class="row justify-around">
             <div
               class="
@@ -31,7 +28,7 @@
                 icon="mdi-minus"
               />
               <div class="col-6">
-                <q-input v-model="productQuantity" outlined dense />
+                <q-input v-model="productQuantity" outlined dense type="number" min="1" />
               </div>
 
               <q-btn
@@ -42,7 +39,9 @@
                 icon="mdi-plus"
               />
             </div>
-            <div class="text-h6 q-mb-xs text-center col-3">{{productPrice}}</div>
+            <div class="text-h6 q-mb-xs text-center col-3">
+              {{ productPrice }}
+            </div>
             <div class="text-h6 q-mb-xs text-center col-4">
               <q-btn @click="addToCart()" label="Agregar" />
             </div>
@@ -52,14 +51,16 @@
       <div class="col-md-4 col-xs-12 q-my-md">
         <div class="text-center text-h4">Caracteristicas</div>
         <q-list bordered class="q-my-sm">
-          <q-item v-for="(detail,i) in product.details" :key="`product-key-${i}`" >
+          <q-item
+            v-for="(detail, i) in product.details"
+            :key="`product-key-${i}`"
+          >
             <q-item-section avatar>
               <q-icon color="black" name="mdi-minus" />
             </q-item-section>
 
-            <q-item-section>{{detail}}</q-item-section>
+            <q-item-section>{{ detail }}</q-item-section>
           </q-item>
-          
 
           <q-separator />
 
@@ -89,7 +90,7 @@
 <script>
 import productStockModal from "../components/productStockModal.vue";
 import addProductModal from "../components/addProductModal.vue";
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   components: {
@@ -100,9 +101,9 @@ export default {
     return {
       showStockModal: false,
       showAddModal: false,
-      productQuantity: 0,
+      productQuantity: 1,
       addResult: true,
-      product: null
+      product: null,
     };
   },
   methods: {
@@ -127,23 +128,28 @@ export default {
       this.openAddModal();
     },
   },
-  computed:{
-    productPrice(){
-      const price = 0
-      arr.forEach(price)
-      this.product.prices.map(e)
-    }
-  },
-  async beforeMount(){
-    try{
-      const product = await axios.get(`http://localhost:5000/ecommerceApi/product/${this.$route.params.id}`)
-      this.product = product.data.data
-    }catch(error){
+  computed: {
+    productPrice() {
+      let price = 0;
+      if (this.product.prices != null) {
+        this.product.prices.forEach((element) => {
+          if (element.quantity <= this.productQuantity) {
+            price = element.price;
+          }
+        });
+      }
 
-    }
-    
-    
-  }
+      return price;
+    },
+  },
+  async beforeMount() {
+    try {
+      const product = await axios.get(
+        `http://localhost:5000/ecommerceApi/product/${this.$route.params.id}`
+      );
+      this.product = product.data.data;
+    } catch (error) {}
+  },
 };
 </script>
 
