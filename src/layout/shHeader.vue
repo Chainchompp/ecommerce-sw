@@ -66,6 +66,11 @@
               <q-item-label>Trace</q-item-label>
             </q-item-section>
           </q-item>
+          <q-item @click="logoutUser()"  clickable v-close-popup>
+            <q-item-section>
+              <q-item-label>Logout</q-item-label>
+            </q-item-section>
+          </q-item>
         </q-list>
       </q-btn-dropdown>
     </q-toolbar>
@@ -93,7 +98,7 @@
 
 <script>
 import { useUserStore } from "../store/modules/userStore";
-import { mapState } from "pinia";
+import { mapActions, mapState } from "pinia";
 
 export default {
   name: "shHeader",
@@ -109,6 +114,11 @@ export default {
     showCategoryModal() {
       this.$emit("showCategoryModal");
     },
+    logoutUser(){
+      this.logout()
+    }
+    ,
+    ...mapActions(useUserStore,["logout"])
   },
   computed: {
     ...mapState(useUserStore, ["userExists"]),

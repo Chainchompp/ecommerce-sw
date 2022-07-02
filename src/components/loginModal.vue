@@ -13,6 +13,7 @@
           dense
           :rules="emailRules"
           :error="emailError"
+          ref="userEmailInput"
           class="q-my-md q-mx-xl"
         />
 
@@ -25,6 +26,7 @@
           :error="passwordError"
           class="q-my-md q-mx-xl"
           type="password"
+          ref="userPasswordInput"
         />
         <div v-if="invalidLogin" class="text-center text-negative">
           Email o contraseña inválidos
@@ -74,20 +76,31 @@ export default {
       this.$emit("closeModal");
     },
     async loginUser() {
-      try {
+      
+      if(this.$refs.userEmailInput.validate() && this.$refs.userPasswordInput.validate()){
+        try {
         await this.login(this.userEmail, this.userPassword);
-        this.$emit("closeModal");
+        setTimeout(() => {
+           this.$emit("closeModal");
+        }, 1000);
       } catch (error) {
         this.invalidLogin = true;
-        this.emailError = true;
-        this.passwordError = true;
+          this.emailError = true;
+          this.passwordError = true;
         setTimeout(() => {
           this.invalidLogin = false;
           this.emailError = false;
           this.passwordError = false;
-          console.log("really");
+          this.userEmail = ""
+          this.userPassword = ""
         }, 2000);
       }
+      }else{
+        if(!this.userEmail){
+          this.emailError = true
+        }
+      }
+      
     },
     openRegisterModal() {
       this.$emit("openRegister");

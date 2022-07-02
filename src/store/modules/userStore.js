@@ -18,14 +18,13 @@ export const useUserStore = defineStore("userStore", {
         async login(email, password) {
 
 
-            const { data:{data} } = await axios.post('http://localhost:5000/ecommerceApi/auth/login',
+            const { data: { data } } = await axios.post('http://localhost:5000/ecommerceApi/auth/login',
                 {
                     email: email,
                     password: password
                 }).catch(error => {
                     throw error
                 })
-            console.log(data)
             this.sessionStorage = data.sessionStorage
             this.user = data.client
             localStorage.setItem('token', data.token)
@@ -33,14 +32,22 @@ export const useUserStore = defineStore("userStore", {
 
         },
         async register(clientInformation) {
-            try {
-                await axios.post('http://localhost:5000/ecommerceApi/auth/register',
-                    {
-                        ...clientInformation
-                    })
-            } catch (error) {
-                console.log(error)
-            }
+
+            await axios.post('http://localhost:5000/ecommerceApi/auth/register',
+                {
+                    ...clientInformation
+                }).catch(error => {
+                    console.log('error register')
+                    throw error
+                })
+            
+
+        },
+        logout(){
+            this.sessionStorage = null
+            this.user = null
+            localStorage.removeItem('token')
+            localStorage.removeItem('expiresIn')
         }
     }
 })
