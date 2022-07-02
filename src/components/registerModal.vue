@@ -182,12 +182,6 @@ export default {
           });
           setTimeout(() => {
             this.$emit("closeModal");
-          }, 1000);
-        } catch (error) {
-          this.invalidRegister = true;
-
-          setTimeout(() => {
-            this.invalidRegister = false;
             this.userEmail = "";
             this.userPassword = "";
             this.userName = "";
@@ -195,6 +189,12 @@ export default {
             this.userMaternal = "";
             this.userDocument = "";
             this.userNumber = "";
+          }, 1000);
+        } catch (error) {
+          this.invalidRegister = true;
+
+          setTimeout(() => {
+            this.invalidRegister = false;
           }, 2000);
         }
       }

@@ -82,6 +82,8 @@ export default {
         await this.login(this.userEmail, this.userPassword);
         setTimeout(() => {
            this.$emit("closeModal");
+           this.userEmail = ""
+          this.userPassword = ""
         }, 1000);
       } catch (error) {
         this.invalidLogin = true;

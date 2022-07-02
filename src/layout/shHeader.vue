@@ -66,7 +66,7 @@
               <q-item-label>Trace</q-item-label>
             </q-item-section>
           </q-item>
-          <q-item @click="logoutUser()"  clickable v-close-popup>
+          <q-item to="/home" @click="logoutUser()"  clickable v-close-popup>
             <q-item-section>
               <q-item-label>Logout</q-item-label>
             </q-item-section>
