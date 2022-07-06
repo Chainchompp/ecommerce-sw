@@ -2,10 +2,10 @@
 <q-page>
   <div class="row  items-start">
     <q-card class="my-card col-xs-12 col-md-5 self-start">
-      <q-img
-        src="data:image/jpeg;base64,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"
+      <q-img :ratio="1" width="100%"
+        :src="profileImage=null? 'https://swbackend.blob.core.windows.net/newcontainer/FONDO_USUARIO.png' : profileImage"
       >
-        <div class="absolute-bottom text-h4 text-center">Giro Pinto</div>
+        <div class="absolute-bottom text-h4 text-center">{{`${user.name} ${user.paternal_surname}`}}</div>
       </q-img>
       <q-card-section style="height: 0px !important; padding: 0px">
         <q-btn
@@ -31,7 +31,7 @@
       <div class="text-subtitle2 q-pl-md text-grey-8">{{user.email}}</div>
       <div class="text-h6">Pedidos realizados</div>
       <div class="text-subtitle2 q-pl-md text-grey-8">
-        128
+        {{userOrders}}
       </div>
       <q-btn
         
@@ -49,10 +49,24 @@
 <script>
 import { mapState } from "pinia";
 import { useUserStore } from "../store/modules/userStore";
+import axios from "axios"
 export default {
   name: "ProfilePage",
+  data() {
+    return {
+      profileImage: null,
+      userOrders: 0
+    }
+  },
   computed:{
     ...mapState(useUserStore,['user'])
+  },
+  async beforeMount(){
+    const params = new URLSearchParams([['client-email', this.user.email]]);
+    const {data: orders} = await axios.get('http://localhost:5000/ecommerceApi/order/quantity', {params})
+    const {data: profile} = await axios.get('http://localhost:5000/ecommerceApi/client/profile', {params})
+    this.profileImage = profile.data.profile_img
+    this.userOrders = orders.data.ordersQuantity
   }
 };
 </script>
