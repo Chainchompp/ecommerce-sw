@@ -76,12 +76,13 @@
       </div>
       <add-product-modal
         :addType="addResult"
-        @close-modal="clossAddModal()"
+        @close-modal="addProductToCart()"
         :showModal="showAddModal"
       ></add-product-modal>
       <product-stock-modal
         @close-modal="closeStockModal()"
         :showModal="showStockModal"
+        :productId="product['_id']"
       ></product-stock-modal>
     </div>
     <div v-if="product == null" class="row justify-around items-center q-pt-xl">
@@ -94,6 +95,8 @@
 import productStockModal from "../components/productStockModal.vue";
 import addProductModal from "../components/addProductModal.vue";
 import axios from "axios";
+import { mapActions } from "pinia";
+import { useCartStore } from "../store/modules/cartStore";
 
 export default {
   components: {
@@ -130,13 +133,18 @@ export default {
       }
       this.openAddModal();
     },
+    addProductToCart() {
+      this.addProduct(this.product, this.productQuantity)
+      this.clossAddModal();
+    },
+    ...mapActions(useCartStore, ["addProduct"]),
   },
   computed: {
     productPrice() {
       let price = 0;
       if (this.product.prices != null) {
         this.product.prices.forEach((element) => {
-          if (element.quantity<= this.productQuantity) {
+          if (element.quantity <= this.productQuantity) {
             price = element.price;
           }
         });
