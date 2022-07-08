@@ -69,7 +69,7 @@ const routes = [
         }
     },
     {
-        path: '/shop',
+        path: '/shop/:id',
         name: 'shop',
         component: ProductSearchPage,
         meta: {
@@ -95,7 +95,10 @@ const routes = [
             requireAuth: true,
         }
     },
-
+    {
+        path: '/shop',
+        redirect: '/home'
+    }
 ]
 
 const router = createRouter({

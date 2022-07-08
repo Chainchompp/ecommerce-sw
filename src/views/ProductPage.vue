@@ -28,7 +28,13 @@
                 icon="mdi-minus"
               />
               <div class="col-6">
-                <q-input v-model="productQuantity" outlined dense type="number" min="1" />
+                <q-input
+                  v-model="productQuantity"
+                  outlined
+                  dense
+                  type="number"
+                  min="1"
+                />
               </div>
 
               <q-btn
@@ -51,15 +57,12 @@
       <div class="col-md-4 col-xs-12 q-my-md">
         <div class="text-center text-h4">Caracteristicas</div>
         <q-list bordered class="q-my-sm">
-          <q-item
-            v-for="(detail, i) in product.details"
-            :key="`product-key-${i}`"
-          >
+          <q-item>
             <q-item-section avatar>
               <q-icon color="black" name="mdi-minus" />
             </q-item-section>
 
-            <q-item-section>{{ detail }}</q-item-section>
+            <q-item-section>{{ product.details }}</q-item-section>
           </q-item>
 
           <q-separator />
@@ -133,7 +136,7 @@ export default {
       let price = 0;
       if (this.product.prices != null) {
         this.product.prices.forEach((element) => {
-          if (element.quantity <= this.productQuantity) {
+          if (element.quantity-1 <= this.productQuantity) {
             price = element.price;
           }
         });

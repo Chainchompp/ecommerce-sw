@@ -82,15 +82,7 @@
         outside-arrows
         indicator-color="transparent"
       >
-        <q-route-tab to="/shop" label="Lácteos" />
-        <q-route-tab to="/shop" label="Aguas y Bebidas" />
-        <q-route-tab to="/shop" label="Mascotas" />
-        <q-route-tab to="/shop" label="Cervezas y Licores" />
-        <q-route-tab to="/shop" label="Frutas y Verduras" />
-        <q-route-tab to="/shop" label="Limpieza" />
-        <q-route-tab to="/shop" label="Embutidos" />
-        <q-route-tab to="/shop" label="Carnes y Pescado" />
-        <q-route-tab to="/shop" label="Abarrotes" />
+        <q-route-tab v-for="category in barCategories" :key="`bar-categories-${category._id}`" :to="`/shop/${category._id}`" :label="category.name" />
       </q-tabs>
     </q-toolbar>
   </q-header>
@@ -100,11 +92,14 @@
 import { useUserStore } from "../store/modules/userStore";
 import { mapActions, mapState } from "pinia";
 
+import axios from 'axios'
+
 export default {
   name: "shHeader",
   data() {
     return {
       barText: "",
+      barCategories: []
     };
   },
   methods: {
@@ -123,6 +118,11 @@ export default {
   computed: {
     ...mapState(useUserStore, ["userExists"]),
   },
+  async beforeMount(){
+    const {data:{data}} = await axios.get('http://localhost:5000/ecommerceApi/category/root')
+    this.barCategories = data.rootCategories
+  },
+  
 };
 </script>
 
