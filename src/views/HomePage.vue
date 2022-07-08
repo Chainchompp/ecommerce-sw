@@ -27,7 +27,7 @@
     </div>
 
     <div class="bg-secondary">
-      <p class="text-subtitle1 text-center text-bold">LOS MÁS VENDIDOS</p>
+      <p class="text-subtitle1 text-center text-bold">ABARROTES</p>
     </div>
 
     <div class="q-pa-md q-mt-xl justify-center row q-gutter-md">
@@ -45,7 +45,7 @@
     </div>
     
     <div class="bg-secondary">
-      <p class="text-subtitle1 text-center text-bold">LOS MÁS VENDIDOS</p>
+      <p class="text-subtitle1 text-center text-bold">BEBIDAS</p>
     </div>
 
     <div class="q-pa-md q-mt-xl justify-center row q-gutter-md">
@@ -63,7 +63,7 @@
     </div>
 
     <div class="bg-secondary">
-      <p class="text-subtitle1 text-center text-bold">LOS MÁS VENDIDOS</p>
+      <p class="text-subtitle1 text-center text-bold">LÁCTEOS</p>
     </div>
 
     <div class="q-pa-md q-mt-xl justify-center row q-gutter-md">
