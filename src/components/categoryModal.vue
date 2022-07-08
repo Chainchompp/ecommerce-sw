@@ -38,7 +38,7 @@
               :name="category.name"
             >
               <router-link
-                :to="`/shop/${category._id}`"
+                :to="{ path: `/shop/${category._id}`, query: { page: 1 } }"
                 class="text-h4"
                 >{{ category.name }}</router-link
               >
@@ -49,12 +49,18 @@
                   class="column col-4 q-my-xs"
                 >
                   <router-link
-                    :to="`/shop/${subCategory._id}`"
+                    :to="{
+                      path: `/shop/${subCategory._id}`,
+                      query: { page: 1 },
+                    }"
                     class="text-weight-bold"
                     >{{ subCategory.name }}</router-link
                   >
                   <router-link
-                    :to="`/shop/${subSubCategory._id}`"
+                    :to="{
+                      path: `/shop/${subSubCategory._id}`,
+                      query: { page: 1 },
+                    }"
                     v-for="subSubCategory in subCategory.children"
                     :key="`sub-sub-${subSubCategory._id}`"
                   >

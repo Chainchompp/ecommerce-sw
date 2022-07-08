@@ -3,6 +3,7 @@
     <q-img
       @click="navigateToProduct(productData._id)"
       v-ripple
+      :ratio="1"
       :src="!!productData.caption ? productData.caption : 'https://cdn.quasar.dev/img/parallax2.jpg'"
     >
       <div class="absolute-bottom text-subtitle2 text-center">{{productData.title}}</div>
@@ -41,7 +42,7 @@ export default {
       let price = 0;
       if (this.productData.prices != null) {
         this.productData.prices.forEach((element) => {
-          if (element.quantity-1 <= this.productQuantity) {
+          if (element.quantity <= this.productQuantity) {
             price = element.price;
           }
         });

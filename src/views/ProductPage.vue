@@ -136,7 +136,7 @@ export default {
       let price = 0;
       if (this.product.prices != null) {
         this.product.prices.forEach((element) => {
-          if (element.quantity-1 <= this.productQuantity) {
+          if (element.quantity<= this.productQuantity) {
             price = element.price;
           }
         });

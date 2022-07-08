@@ -11,7 +11,7 @@
       />
       <q-btn flat round dense icon="mdi-shopping" to="/home" size="xl" />
       <q-space></q-space>
-      <img src="../assets/logo.png" style="height: 50px" alt="Logo"/>
+      <img src="../assets/logo.png" style="height: 50px" alt="Logo" />
       <q-space></q-space>
       <q-btn size="xl" flat round dense icon="mdi-store" to="/store" />
       <q-btn size="xl" flat round dense icon="shopping_cart" to="/cart" />
@@ -66,7 +66,7 @@
               <q-item-label>Trace</q-item-label>
             </q-item-section>
           </q-item>
-          <q-item to="/home" @click="logoutUser()"  clickable v-close-popup>
+          <q-item to="/home" @click="logoutUser()" clickable v-close-popup>
             <q-item-section>
               <q-item-label>Logout</q-item-label>
             </q-item-section>
@@ -82,7 +82,12 @@
         outside-arrows
         indicator-color="transparent"
       >
-        <q-route-tab v-for="category in barCategories" :key="`bar-categories-${category._id}`" :to="`/shop/${category._id}`" :label="category.name" />
+        <q-route-tab
+          v-for="category in barCategories"
+          :key="`bar-categories-${category._id}`"
+          :to="{ path: `/shop/${category._id}`, query: { page: 1 } }"
+          :label="category.name"
+        />
       </q-tabs>
     </q-toolbar>
   </q-header>
@@ -92,14 +97,14 @@
 import { useUserStore } from "../store/modules/userStore";
 import { mapActions, mapState } from "pinia";
 
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   name: "shHeader",
   data() {
     return {
       barText: "",
-      barCategories: []
+      barCategories: [],
     };
   },
   methods: {
@@ -109,20 +114,20 @@ export default {
     showCategoryModal() {
       this.$emit("showCategoryModal");
     },
-    logoutUser(){
-      this.logout()
-    }
-    ,
-    ...mapActions(useUserStore,["logout"])
+    logoutUser() {
+      this.logout();
+    },
+    ...mapActions(useUserStore, ["logout"]),
   },
   computed: {
     ...mapState(useUserStore, ["userExists"]),
   },
-  async beforeMount(){
-    const {data:{data}} = await axios.get('http://localhost:5000/ecommerceApi/category/root')
-    this.barCategories = data.rootCategories
+  async beforeMount() {
+    const {
+      data: { data },
+    } = await axios.get("http://localhost:5000/ecommerceApi/category/root");
+    this.barCategories = data.rootCategories;
   },
-  
 };
 </script>
 

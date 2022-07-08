@@ -18,7 +18,9 @@
               v-for="subCategory in categoryInformation.children"
               :key="`subcategory-${subCategory._id}`"
             >
-              <router-link :to="`/shop/${subCategory._id}`">
+              <router-link
+                :to="{ path: `/shop/${subCategory._id}`, query: { page: 1 } }"
+              >
                 {{ capitalize(subCategory.name) }}
               </router-link>
             </div>
@@ -85,11 +87,15 @@
           :productData="product"
         ></product-card>
       </div>
-      <div v-if="products.length == 0" class="row justify-around q-my-md text-h5">
+      <div
+        v-if="products.length == 0"
+        class="row justify-around q-my-md text-h5"
+      >
         No hay resultados para los filtros seleccionados
       </div>
       <div class="q-pa-lg flex flex-center">
         <q-pagination
+          v-if="paginationInfo != null"
           v-model="current"
           color="black"
           :max="paginationInfo.totalPages"
@@ -110,11 +116,7 @@ export default {
   name: "ProductSearchPage",
   data() {
     return {
-      options: [
-        { label: "MiMaskot", value: "marca1", color: "black" },
-        { label: "Pedigree", value: "marca2", color: "black" },
-        { label: "Otros", value: "marca3", color: "black" },
-      ],
+      options: [],
       categoryInformation: null,
       group: [],
       orderBy: null,
@@ -128,38 +130,28 @@ export default {
     ProductCard,
   },
   async beforeMount() {
-    const params = new URLSearchParams([
-      ["id", this.$route.params.id],
-      ["type", "id"],
-    ]);
-    const {
-      data: { data: categoryInformation },
-    } = await axios.get(`http://localhost:5000/ecommerceApi/category/by-id`, {
-      params,
-    });
-
-    this.categoryInformation = categoryInformation.categories[0];
-    this.getProducts(this.categoryInformation.name);
+    await this.getCategoryInfo(this.$route.params.id);
+    await this.getProducts(this.categoryInformation.name,this.$route.query.page,this.group);
   },
   async beforeRouteUpdate(to, from) {
     // react to route changes...
-    const params = new URLSearchParams([["id", to.params.id]]);
-    const {
-      data: { data: categoryInformation },
-    } = await axios.get(`http://localhost:5000/ecommerceApi/category/by-id`, {
-      params,
-    });
-
-    this.categoryInformation = categoryInformation.categories[0];
-    this.getProducts(this.categoryInformation.name);
+    await this.getCategoryInfo(to.params.id);
+    await this.getProducts(this.categoryInformation.name, to.query.page,this.group);
   },
   methods: {
-    async getProducts(categoryName) {
-      const params = new URLSearchParams([
-        ["category", categoryName],
-        ["limit", 25],
-        ["page", 1],
-      ]);
+    async getProducts(categoryName, page, brands) {
+      const params = brands.length > 0
+        ? new URLSearchParams([
+            ["category", categoryName],
+            ["limit", 20],
+            ["page", page],
+            ["brands", brands],
+          ])
+        : new URLSearchParams([
+            ["category", categoryName],
+            ["limit", 20],
+            ["page", page],
+          ]);
       const {
         data: { data: productInformation },
       } = await axios.get(
@@ -170,9 +162,38 @@ export default {
       );
       this.products = productInformation.products;
       this.paginationInfo = productInformation.pagination;
+      this.options = productInformation.facets[0].brands.map((e) => {
+        return {
+          label: `${this.capitalize(e._id)} (${e.count})`,
+          value: e._id,
+        };
+      });
     },
     capitalize(word) {
       return word[0].toUpperCase() + word.slice(1).toLowerCase();
+    },
+    async getCategoryInfo(id) {
+      const params = new URLSearchParams([["id", id]]);
+      const {
+        data: { data: categoryInformation },
+      } = await axios.get(`http://localhost:5000/ecommerceApi/category/by-id`, {
+        params,
+      });
+
+      this.categoryInformation = categoryInformation.categories[0];
+    },
+  },
+  watch: {
+    current(newValue) {
+      if (this.group.length > 0) {
+        this.$router.replace({ query: { page: newValue, brands: this.group } });
+      } else {
+        this.$router.replace({ query: { page: newValue } });
+      }
+      
+    },
+    group(newValue) {
+      this.$router.push({ query: { brands: newValue, page: this.current } });
     },
   },
 };
