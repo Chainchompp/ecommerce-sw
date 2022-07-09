@@ -19,8 +19,11 @@ export const useCartStore = defineStore("cartStore", {
 
         },
         addProduct(product, quantity) {
-            const index = this.products.findIndex(e => product._id == e._id)
-            if (index != -1) {
+            const index = this.products.findIndex(e => {
+                console.log(product._id == e.product._id)
+                return product._id == e.product._id
+            })
+            if (index == -1) {
                 this.products.push({
                     product: product,
                     quantity: quantity
@@ -32,13 +35,18 @@ export const useCartStore = defineStore("cartStore", {
                         quantity: quantity
                     })
                 } else {
+                    console.log(index)
+                    console.log(this.products[index])
                     this.products[index].quantity += quantity
                 }
             }
         },
         removeProduct(product) {
-            const index = this.products.findIndex(e => product._id == e._id)
-            if (index == -1) {
+            const index = this.products.findIndex(e => {
+                console.log(product._id,e.product._id)
+                return product._id == e.product._id
+            })
+            if (index != -1) {
                 this.products.splice(index, 1)
             } else {
                 console.log('No se puede remover xd')
